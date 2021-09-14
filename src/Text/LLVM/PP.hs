@@ -753,6 +753,7 @@ ppValue' pp val = case val of
   ValString s        -> char 'c' <> ppStringLiteral (map (toEnum . fromIntegral) s)
   ValConstExpr ce    -> ppConstExpr' pp ce
   ValUndef           -> "undef"
+  ValPoison          -> "poison"
   ValLabel l         -> pp l
   ValZeroInit        -> "zeroinitializer"
   ValAsm s a i c     -> ppAsm s a i c

@@ -989,6 +989,7 @@ data Value' lab
   | ValString [Word8]
   | ValConstExpr (ConstExpr' lab)
   | ValUndef
+  | ValPoison
   | ValLabel lab
   | ValZeroInit
   | ValAsm Bool Bool String String
