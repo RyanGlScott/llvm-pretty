@@ -1124,6 +1124,7 @@ data DebugInfo' lab
   | DebugInfoTemplateValueParameter (DITemplateValueParameter' lab)
   | DebugInfoImportedEntity (DIImportedEntity' lab)
   | DebugInfoLabel (DILabel' lab)
+  | DebugInfoArgList (DIArgList' lab)
     deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DebugInfo = DebugInfo' BlockLabel
@@ -1356,6 +1357,12 @@ data DISubroutineType' lab = DISubroutineType
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DISubroutineType = DISubroutineType' BlockLabel
+
+newtype DIArgList' lab = DIArgList
+  { dialArgs :: [ValMd' lab]
+  } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
+
+type DIArgList = DIArgList' BlockLabel
 
 -- Aggregate Utilities ---------------------------------------------------------
 
