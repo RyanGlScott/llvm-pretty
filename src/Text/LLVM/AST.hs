@@ -1239,6 +1239,8 @@ data DICompositeType' lab = DICompositeType
   , dictAssociated     :: Maybe (ValMd' lab)
   , dictAllocated      :: Maybe (ValMd' lab)
   , dictRank           :: Maybe (ValMd' lab)
+  , dictAnnotations    :: Maybe (ValMd' lab)
+    -- ^ Introduced in LLVM 14.
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DICompositeType = DICompositeType' BlockLabel
@@ -1255,6 +1257,8 @@ data DIDerivedType' lab = DIDerivedType
   , didtOffset :: Word64
   , didtFlags :: DIFlags
   , didtExtraData :: Maybe (ValMd' lab)
+  , didtAnnotations :: Maybe (ValMd' lab)
+    -- ^ Introduced in LLVM 14
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DIDerivedType = DIDerivedType' BlockLabel
@@ -1280,6 +1284,8 @@ data DIGlobalVariable' lab = DIGlobalVariable
   , digvVariable             :: Maybe (ValMd' lab)
   , digvDeclaration          :: Maybe (ValMd' lab)
   , digvAlignment            :: Maybe Word32
+  , digvAnnotations          :: Maybe (ValMd' lab)
+    -- ^ Introduced in LLVM 14.
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DIGlobalVariable = DIGlobalVariable' BlockLabel
@@ -1316,6 +1322,8 @@ data DILocalVariable' lab = DILocalVariable
   , dilvType :: Maybe (ValMd' lab)
   , dilvArg :: Word16
   , dilvFlags :: DIFlags
+  , dilvAnnotations :: Maybe (ValMd' lab)
+    -- ^ Introduced in LLVM 14.
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DILocalVariable = DILocalVariable' BlockLabel
@@ -1341,6 +1349,8 @@ data DISubprogram' lab = DISubprogram
   , dispDeclaration    :: Maybe (ValMd' lab)
   , dispVariables      :: Maybe (ValMd' lab)
   , dispThrownTypes    :: Maybe (ValMd' lab)
+  , dispAnnotations    :: Maybe (ValMd' lab)
+    -- ^ Introduced in LLVM 14.
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
 
 type DISubprogram = DISubprogram' BlockLabel
