@@ -1334,6 +1334,8 @@ data DILocalVariable' lab = DILocalVariable
   , dilvType :: Maybe (ValMd' lab)
   , dilvArg :: Word16
   , dilvFlags :: DIFlags
+  , dilvAlignment :: Maybe Word32
+    -- ^ Introduced in LLVM 4
   , dilvAnnotations :: Maybe (ValMd' lab)
     -- ^ Introduced in LLVM 14.
   } deriving (Data, Eq, Functor, Generic, Generic1, Ord, Show, Typeable)
